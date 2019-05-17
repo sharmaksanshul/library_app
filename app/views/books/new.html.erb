@@ -1,0 +1,14 @@
+<%= form_for(@book, :html => {:multipart => true}) do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.label :author %>
+  <%= f.text_field :author %>
+
+  <%= f.label :no_of_copies %>
+  <%= f.text_field :no_of_copies %>
+
+  <%= f.file_field :picture %>
+
+  <%= f.submit "Submit" %>
+<% end %>
