@@ -1,6 +1,6 @@
 class BookKeepersController < ApplicationController
 
-	def showbooks
+	def show_books
 		@books = Book.all
 	end
 

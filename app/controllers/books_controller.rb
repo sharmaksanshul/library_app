@@ -9,23 +9,19 @@ class BooksController < ApplicationController
 
 		@book = Book.new(user_params)
 		if @book.save
-			flash[:info] = "book added successfully"
 			@book_keeper = current_book_keeper
 			redirect_to @book_keeper
 		else
-			flash[:info] = "some error in saving the book"
 			redirect_to root_path
 		end	
 
 	end
 
-	def show
+	# def show
+	# end
 
-	end
-
-	def index
-
-	end
+	# def index
+	# end
 
 	def destroy
 
@@ -34,7 +30,6 @@ class BooksController < ApplicationController
 			 @book_keeper = current_book_keeper
 			redirect_to @book_keeper
 		else
-			flash[:info] = "some error in saving the book"
 			redirect_to root_path
 		end
 		

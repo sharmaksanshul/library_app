@@ -8,6 +8,7 @@
 		  <strong> Author: </strong>
 			<%= book.author %>
 			<%= image_tag book.picture_url(:thumb).to_s %>
-			<%= link_to 'delete', book , :method => :delete  ,  data: { confirm: "You sure?" %>
+			<%= link_to 'delete', book , :method => :delete  ,  data: { confirm: "You sure?" } %>
 		</div>
+		<br>
 	<% end %>
