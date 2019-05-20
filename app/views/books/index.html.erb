@@ -1,0 +1,5 @@
+<% if book_keeper_signed_in? %>
+	<%= render 'lib_books' %>
+<% elsif student_signed_in? %>
+	<%= render 'student_book' %>
+<% end %>

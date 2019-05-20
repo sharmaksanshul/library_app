@@ -1,7 +1,7 @@
 class Book < ApplicationRecord
 	attr_accessor :picture
-	validates  :name ,presence: true
-	validates  :author ,presence: true
+	validates  :name ,presence: true, length: {maximum: 50}
+	validates  :author ,presence: true, length: {maximum: 50}
 	validates  :no_of_copies ,presence: true
 	before_save   :capitalize?
 

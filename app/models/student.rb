@@ -1,7 +1,7 @@
 class Student < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  validates :name,presence: true
+  validates :name,presence: true ,  length: {maximum: 50}
   before_save :upcase?
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable

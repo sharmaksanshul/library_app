@@ -1,0 +1,14 @@
+<h1> Logged in as a Book Keeper </h1>
+
+	<%= link_to '<button class="btn btn-primary custom1" type="button">Add Book</button>'.html_safe, new_book_path %>
+	<% @books.each do |book| %>
+		<div>
+			<strong> Name: </strong>
+		  <%= book.name %>
+		  <strong> Author: </strong>
+			<%= book.author %>
+			<%= image_tag book.picture_url(:thumb).to_s %>
+			<%= link_to 'delete', book , :method => :delete  ,  data: { confirm: "You sure?" } %>
+		</div>
+		<br>
+	<% end %>
