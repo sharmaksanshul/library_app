@@ -8,13 +8,11 @@ class BooksController < ApplicationController
 	def create
 		@book = Book.new(user_params)
 		if @book.save
-			@book_keeper = current_book_keeper
-			redirect_to @book_keeper
+			redirect_to books_path
 		else
 			redirect_to root_path
 		end	
 	end
-
 	# def show
 	# end
 
@@ -25,8 +23,7 @@ class BooksController < ApplicationController
 	def destroy
 		@book = Book.find(params[:id])
 		if @book.destroy 
-			 @book_keeper = current_book_keeper
-			redirect_to @book_keeper
+			redirect_to books_path
 		else
 			redirect_to root_path
 		end		
@@ -43,6 +40,6 @@ class BooksController < ApplicationController
 	end
 
 	def allow_admin_and_student
-		redirect_to root_path unless (book_keeper_signed_in?|| student_signed_in?)s
+		redirect_to root_path unless (book_keeper_signed_in?|| student_signed_in?)
 	end
 end

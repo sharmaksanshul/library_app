@@ -1,16 +1,12 @@
 class WelcomeController < ApplicationController
 
-	def new
-
+	def home
 		if book_keeper_signed_in?
-			# @book_keeper = current_book_keeper
 			redirect_to books_path
 		elsif student_signed_in?
 			redirect_to books_path	
 		else
-			render 'welcome/new'
+			render 'welcome/home'
 		end 
-
 	end
-
 end

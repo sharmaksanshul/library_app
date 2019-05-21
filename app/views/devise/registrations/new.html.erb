@@ -1,7 +1,7 @@
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   
- <div class="container">
+  <div class="container">
     <h1>Sign Up</h1>
     <p>Please fill in this form to create an account.</p>
     <hr>
@@ -34,6 +34,7 @@
       <button class="btn " type="button"><%= f.submit"Sign up" %></button>
     </div>
     <div class="actions">
+      <span> <em>If already a user? then </em> </span> 
       <%= render "devise/shared/links" %>
     </div>
   </div>

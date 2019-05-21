@@ -8,13 +8,10 @@ Rails.application.routes.draw do
   # devise_scope :student do
   #   get '/students/sign_out' => 'devise/sessions#destroy'
   # end
-
-  get '/availbooks', to: 'students#show_avail_books'
-  get '/allbooks', to: 'book_keepers#show_books'
   resources :book_keepers, only: [:show]
   resources :students, only: [:show]
   resources :books, only: [:new,:create,:destroy,:index]
-  root 'welcome#new'
+  root 'welcome#home'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
