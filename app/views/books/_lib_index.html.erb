@@ -1,5 +1,4 @@
 <h1> Logged in as a Book Keeper </h1>
-	<%= link_to '<button class="btn btn-primary custom1" type="button">Add Book</button>'.html_safe, new_book_path %>
 	<% @books.each do |book| %>
 		<div class="container" >
 			<div class="row">
@@ -8,13 +7,9 @@
 				    <%= image_tag book.picture_url(:thumb).to_s %>
 					</div>
 					<div>
-						<strong><%= book.name %></strong>
+						<strong><%= link_to "#{book.name}", book %></strong>
 						<em>By</em>
 						<strong><%= book.author %></strong>
-						<!-- <%= render 'issue',book: book %> -->
-						<button class="btn ">
-						 <%= link_to 'delete', book , :method => :delete  ,  data: { confirm: "You sure?" } %>
-					  </button>
 					</div>
 				</div>
 			</div>

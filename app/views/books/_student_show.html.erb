@@ -1,0 +1,19 @@
+<div class="container" >
+	<div class="row">
+		<div class="col-sm-6" >
+			<div>
+		    <%= image_tag @book.picture_url(:thumb).to_s %>
+			</div>
+			<div>
+				<strong><%= @book.name %></strong>
+				<em>By</em>
+				<strong><%= @book.author %></strong>
+			  <% if @availability>0 %>
+			  	<div>
+				  	<em> Available For Issue </em>
+				  </div>	
+				<% end %>
+			</div>
+		</div>
+	</div>
+</div>

@@ -8,6 +8,12 @@ class Book < ApplicationRecord
 	before_save :capitalize_details
 	mount_uploader :picture , PictureUploader
 
+	def count_issued_book
+		issue_details.where(act_recieved_date:nil).count
+	end
+
+	private 
+
 	def capitalize_details
 		self.name = name.capitalize
 		self.author = author.capitalize
