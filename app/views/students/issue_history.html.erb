@@ -1,0 +1,32 @@
+<h3><STRONG><em><center>Total Issue</center></em></strong></h3>
+<div class="table-responsive">          
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Book id</th>
+        <th>IssueDate</th>
+        <th>Book Name</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <% @issue_history.each do|detail| %>
+			<tbody>
+	      <tr>
+	        <td><%= detail.book_id %></td>
+	        <td><%= detail.issue_date %></td>
+	        <td><%= detail.book.name %></td>
+          <% if detail.act_recieved_date == nil %>
+            <td>Pending</td> 
+          <% else %>
+            <td>Submitted</td>
+          <% end %> 
+	      </tr>
+	    </tbody>
+		<% end %>
+  </table>
+</div>
+<div>
+  <button class="btn ">
+  <%= link_to 'Back', books_path %>
+  </button>
+</div>

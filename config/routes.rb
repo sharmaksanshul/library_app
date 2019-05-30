@@ -5,13 +5,18 @@ Rails.application.routes.draw do
   #   get '/students/sign_out' => 'devise/sessions#destroy'
   # end
   resources :book_keepers,  only: [:show]
-  resources :students,      only: [:show]
-  resources :issue_details, only: [:create, :destroy]
+  resources :students,      only: [:show] do
+    member do
+      get :issue_history
+    end
+  end
+  resources :issue_details, only: [:create, :edit, :update]
   resources :books do
     member do
-      get :issue
+      get :issue, :issue_record
     end
   end
   root 'welcome#home'
+  resources :checkouts,  only: [:new, :create, :show]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

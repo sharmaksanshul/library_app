@@ -1,0 +1,34 @@
+<%= form_for(@issue_detail) do |f| %>
+  <div class="container">
+    <div class="field">
+      <%= f.label "Student Id" %><br />
+      <%= f.text_field :student_id %>
+    </div>
+
+    <div class="field">
+      <%= f.label "Issue Date" %><br />
+      <%= f.text_field :issue_date %>
+    </div>
+
+    <div class="field">
+      <%= f.label "Expected Return" %><br />
+      <%= f.text_field :issue_date %>
+    </div>
+
+    <div class="field">
+      <%= f.label "Actual Return" %><br />
+      <%= f.date_select :act_recieved_date %>
+    </div>
+
+    <div class="field">
+      <%= f.label "Fine" %><br />
+      <%=  f.text_field :fine %>
+      
+    </div>
+
+    <div class="actions">
+      <button class="btn " type="button"><%= f.submit"Submit" %></button>
+    </div>
+  </div>
+<% end %>
+

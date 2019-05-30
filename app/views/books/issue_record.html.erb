@@ -1,0 +1,26 @@
+<h3><STRONG><em><center>Total Issue</center></em></strong></h3>
+<div class="table-responsive">          
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Student_id</th>
+        <th>IssueDate</th>
+        <th>Student Name</th>
+      </tr>
+    </thead>
+    <% @issue_record.each do|detail| %>
+			<tbody>
+	      <tr>
+	        <td><%= detail.student_id %></td>
+	        <td><%= detail.issue_date %></td>
+	        <td><%= detail.student.name %></td> 
+	      </tr>
+	    </tbody>
+		<% end %>
+  </table>
+</div>
+<div>
+  <button class="btn ">
+  <%= link_to 'Back', @book %>
+  </button>
+</div>

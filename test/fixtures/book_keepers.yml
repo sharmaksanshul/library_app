@@ -13,3 +13,8 @@ anshul:
   name: anshul
   email: anshaishan222@gmail.com
   encrypted_password: 123456
+
+avneet:
+  name: avneet
+  email: avneet@gmail.com
+  encrypted_password: 123456

@@ -8,6 +8,10 @@ class Student < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  def issue_history
+    issue_details.includes(:book)
+  end
+
   def upcasing
   	self.name = name.upcase
   end       

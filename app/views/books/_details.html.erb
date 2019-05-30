@@ -1,0 +1,23 @@
+<h3><STRONG><em><center>Active Issue</center></em></strong></h3>
+<div class="table-responsive">          
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Student_id</th>
+        <th>IssueDate</th>
+        <th>ExpectedReturn</th>
+        <th>Option</th>
+      </tr>
+    </thead>
+    <% @active_issue_details.each do|detail| %>
+			<tbody>
+	      <tr>
+	        <td><%= detail.student_id %></td>
+	        <td><%= detail.issue_date %></td>
+	        <td><%= detail.exp_recieved_date %></td>
+	        <td><%= link_to 'Return',  edit_issue_detail_path(detail) %></td>
+	      </tr>
+	    </tbody>
+		<% end %>
+  </table>
+</div>

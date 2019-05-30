@@ -4,11 +4,23 @@
 
 
 .custom1{
-  background:black;
+ text-color:black;
+ padding:10px;
+ margin-bottom:10px
 }
 .custom1:hover{
-    background:pink;
+    color:white;
+    background:black;
     border:none;
 
 }
+.custom-text{
+	text-align:center;
+}
 
+.thumbnail{
+  width:250px;
+  height:150px;
+  margin-right: 20px;
+  margin-left: 20px;
+}

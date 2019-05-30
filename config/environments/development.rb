@@ -60,4 +60,21 @@ Rails.application.configure do
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
    config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
+#    gateway = Braintree::Gateway.new(
+#   :environment => :sandbox,
+#   :merchant_id => '2824qnfh4tzsqpm9',
+#   :public_key => '6tt949hw4x2bt7jc',
+#   :private_key => 'f2f6b1c495ce73091223cd9a1ef18875',
+#   )
+
+#    result = gateway.transaction.sale(
+#   :amount => "100.00",
+#   :payment_method_nonce => "nonce_from_the_client",
+#   :options => {
+#     :submit_for_settlement => true
+#   }
+# )
+
+
 end

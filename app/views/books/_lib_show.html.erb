@@ -1,6 +1,6 @@
 <div class="container" >
 		<div class="row">
-			<div class="col-sm-6" >
+			<div class="col-sm-8" >
 				<div>
 			    <%= image_tag @book.picture_url(:thumb).to_s %>
 				</div>
@@ -8,14 +8,24 @@
 					<strong><%= @book.name %></strong>
 					<em>By</em>
 					<strong><%= @book.author %></strong>
-					<button class="btn ">
-					 <%= link_to 'delete', @book , :method => :delete  ,  data: { confirm: "You sure?" } %>
-				  </button>
-				  <% if @availability>0 %>
-					  <button class="btn ">
-								 <%= link_to 'Issue', issue_book_path(@book) %>
+					<div>
+						<button class="btn ">
+						 <%= link_to 'Delete', @book, :method => :delete,  data: { confirm: "You sure?" }%>
+					  </button>
+					  <% if @availability>0 %>
+						  <button class="btn ">
+								<%= link_to 'Issue', issue_book_path(@book) %>
+							</button>
+						<% end %>
+						<button class="btn ">
+							<%= link_to 'IssueHistory', issue_record_book_path(@book) %>
 						</button>
-					<% end %>
+					</div>
+					<div>
+						<% if @active_issue_details.count>0 %>
+								<%= render 'details' %>
+						<% end %>
+					</div>
 				</div>
 			</div>
 		</div>

@@ -1,19 +1,24 @@
 <h1> Logged in as a Book Keeper </h1>
-	<% @books.each do |book| %>
-		<div class="container" >
-			<div class="row">
-				<div class="col-sm-6" >
-					<div>
-				    <%= image_tag book.picture_url(:thumb).to_s %>
-					</div>
-					<div>
-						<strong><%= link_to "#{book.name}", book %></strong>
-						<em>By</em>
-						<strong><%= book.author %></strong>
-					</div>
-				</div>
-			</div>
-		</div>
-		<br>
-	<% end %>
+<table>
+  <% @books.each_slice(4) do |slice| %>   
+    <tr>
+      <% slice.each do |book| %>
+        <td> 
+          <div class = "row">
+            <div class = "col-md-12">
+              <div class = "thumbnail">
+                <%= image_tag book.picture_url(:thumb).to_s %>   
+                <div class = caption >
+                  <strong><%= link_to "#{book.name}", book %></strong>
+									<em>By</em>
+									<strong><%= book.author %></strong>
+                </div>
+              </div>
+            </div>
+          </div>
+        </td>
+      <% end %>
+    </tr>
+  <% end %>
+</table>
 

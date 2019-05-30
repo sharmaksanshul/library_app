@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_21_080047) do
+ActiveRecord::Schema.define(version: 2019_05_29_063449) do
 
   create_table "book_keepers", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(version: 2019_05_21_080047) do
     t.integer "fine"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "transaction_id"
     t.index ["book_id", "student_id"], name: "index_issue_details_on_book_id_and_student_id"
     t.index ["book_id"], name: "index_issue_details_on_book_id"
     t.index ["student_id"], name: "index_issue_details_on_student_id"

@@ -1,20 +1,23 @@
 <%= form_for(@book, :html => {:multipart => true}) do |f| %>
-  <div>
-	  <%= f.label :name %>
-	  <%= f.text_field :name %>
-  </div>
-  <div>
-	  <%= f.label :author %>
-	  <%= f.text_field :author %>
-  </div>
-  <div>
-	  <%= f.label :no_of_copies %>
-	  <%= f.text_field :no_of_copies %>
-  </div>
-  <div>
-  	<%= f.file_field :picture %>
-  </div>
-  <div>
-  	<%= f.submit "Submit" %>
+  <div class="container">
+    <div class="field">
+  	  <%= f.label "Name" %><br/>
+  	  <%= f.text_field :name %>
+    </div>
+    <div class='field'>
+  	  <%= f.label "Author" %><br/>
+  	  <%= f.text_field :author %>
+    </div>
+    <div class="field">
+  	  <%= f.label "No_of_copies" %><br/>
+  	  <%= f.text_field :no_of_copies %>
+    </div>
+    <div class="field">
+      <%= f.label "Add" %><br/>
+    	<%= f.file_field :picture %>
+    </div>
+    <div class="actions">
+    	<%= f.submit "Submit" %>
+    </div>
   </div>
 <% end %>

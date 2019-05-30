@@ -1,5 +1,5 @@
 class BookKeepersController < ApplicationController
-	before_action :authenticate_admin? , only: [:show]
+	before_action :authenticate_admin?, only: [:show]
 	# def show_books
 	# 	@books = Book.all
 	# end
