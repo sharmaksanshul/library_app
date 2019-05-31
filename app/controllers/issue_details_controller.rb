@@ -7,7 +7,7 @@ class IssueDetailsController < ApplicationController
 		if @issue_detail.save
 			redirect_to books_path
 		else
-			redirect_to issue_book_path
+			render 'books/issue'
 		end
 	end
 
@@ -21,7 +21,7 @@ class IssueDetailsController < ApplicationController
 		@issue_detail = IssueDetail.find(params[:id])
 		@fine = params.require(:issue_detail).permit(:fine)
 		if @fine[:fine].to_i > 0
-			redirect_to new_checkout_path(issue_detail_id: @issue_detail.id)
+			redirect_to new_checkout_path(issue_detail_id: @issue_detail.id, fine: @fine[:fine])
 		else
 			if @issue_detail.update_attributes(details_params)
 	      flash[:success] = "Record updated"

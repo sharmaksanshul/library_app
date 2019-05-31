@@ -4,10 +4,10 @@ class Book < ApplicationRecord
 	attr_accessor :picture
 	validates :name, presence: true, length: {maximum: 50}
 	validates :author, presence: true, length: {maximum: 50}
-	validates :no_of_copies, presence: true
+	validates :no_of_copies, presence: true, length: {maximum: 2}
 	validate  :picture_size
 	before_save :capitalize_details
-	mount_uploader :picture , PictureUploader
+	mount_uploader :picture, PictureUploader
 
 	def active_issues
 		issue_details.where(act_recieved_date:nil)

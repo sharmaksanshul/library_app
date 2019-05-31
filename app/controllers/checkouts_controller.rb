@@ -16,7 +16,7 @@ class CheckoutsController < ApplicationController
   
     @client_token = gateway.client_token.generate
     @issue_detail = IssueDetail.find(params[:issue_detail_id])
-
+    @fine = params[:fine].to_i
   end
 
   def show
@@ -38,12 +38,12 @@ class CheckoutsController < ApplicationController
     )
 
     if result.success? || result.transaction
-      @issue_detail.update_attributes(fine:amount, transaction_id:result.transaction.id )
+      @issue_detail.update_attributes(fine:amount, transaction_id:result.transaction.id, act_recieved_date:Date.today )
       redirect_to checkout_path(result.transaction.id)
     else
       error_messages = result.errors.map { |error| "Error: #{error.code}: #{error.message}" }
       flash[:error] = error_messages
-      redirect_to new_checkout_path
+      redirect_to new_checkout_path(issue_detail_id: @issue_detail.id, fine: amount)
       # redirect_to checkout_path(result.transaction.id)
     end
   end

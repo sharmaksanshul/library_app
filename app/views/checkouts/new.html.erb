@@ -15,7 +15,7 @@
             <span class="input-label">Amount</span>
             <div class="input-wrapper amount-wrapper">
               <div><%= hidden_field_tag :id, @issue_detail.id %></div>
-              <input id="amount" name="amount" type="tel" min="1" placeholder="Amount" value="10">
+              <%= text_field_tag :amount, @fine %>
             </div>
           </label>
 
