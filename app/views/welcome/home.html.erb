@@ -1,4 +1,42 @@
-<center><h1 class="root"> Log In First </h1></center>
-<div >
-	<%= image_tag"library.png", alt: "Rails logo", :class=>"img"%>
-</div>
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>LibraryApp</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <style type="text/css">
+        body { 
+          padding-top: 80px; 
+          font-family: Arvo; 
+          background-image: url(/assets/library.png); 
+            }
+            h1{
+                text-align: left;
+                color: white;
+                margin-top:105px;
+                margin-left:125px;
+            }
+            h3{
+                color: white;
+            }
+            .quote{
+            	text-align: left;
+              color: white;
+              margin-top:5px;
+              margin-left:125px;
+            }
+
+    </style>
+  </head>
+
+  <body>
+  		<b> <h2 class="quote"> <STRONG>“I have always imagined that Paradise will be a kind of library.”</STRONG> </h2> </b>
+ 	    <b> <h1> <STRONG>Log In As:</STRONG> </h1> </b>
+     <STRONG><h5><%= link_to "Admin" , book_keeper_session_path, :class=> 'top-left' %></h5></STRONG> 
+     <strong><h5><%= link_to "Student" ,  new_student_registration_path, :class=> 'top-right' %></h5></strong>  
+  </body>
+</html>
