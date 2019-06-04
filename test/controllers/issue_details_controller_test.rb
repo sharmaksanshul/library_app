@@ -43,7 +43,7 @@ class IssueDetailsControllerTest < ActionDispatch::IntegrationTest
                                                   exp_recieved_date: Date.today,
                                                   act_recieved_date: Date.today,
                                                   fine: 10 }} 
-    assert_redirected_to new_checkout_path(issue_detail_id: @issue_detail.id)
+    assert_redirected_to new_checkout_path(issue_detail_id: @issue_detail.id, fine: 10)
   end
 
  
