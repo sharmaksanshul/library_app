@@ -27,7 +27,7 @@ class BooksIssueTest < ActionDispatch::IntegrationTest
   	get issue_book_path(@book)
   	assert_response :success
   	assert_template 'books/issue'
-  	assert_select "label", "Student id"
+  	assert_select "label", "Roll no"
   end
 
 

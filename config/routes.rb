@@ -18,5 +18,7 @@ Rails.application.routes.draw do
   end
   root 'welcome#home'
   resources :checkouts,  only: [:new, :create, :show]
+  get  '/find_student',   to: 'book_keepers#find_student'
+  get  '/student_issue',   to: 'students#current_active_issue'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

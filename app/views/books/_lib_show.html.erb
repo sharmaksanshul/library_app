@@ -1,25 +1,19 @@
 <div class="container" >
 		<div class="row">
 			<div class="col-sm-8" >
-				<div>
-			    <%= image_tag @book.picture_url.to_s, class:"show-book" %>
+				<div >
+			    <%= image_tag @book.picture_url(:thumb).to_s, class:"show-book" %>
 				</div>
 				<div>
 					<strong><%= @book.name %></strong>
 					<em>By</em>
 					<strong><%= @book.author %></strong>
 					<div>
-						<button class="btn ">
-						 <%= link_to 'Delete', @book, :method => :delete,  data: { confirm: "You sure?" }%>
-					  </button>
+						<%= link_to 'Delete', @book, :method => :delete,  data: { confirm: "You sure?" }, class:"btn btn-danger"%>
 					  <% if @availability>0 %>
-						  <button class="btn ">
-								<%= link_to 'Issue', issue_book_path(@book) %>
-							</button>
+							<%= link_to 'Issue', issue_book_path(@book), class:"btn btn-success" %>
 						<% end %>
-						<button class="btn ">
-							<%= link_to 'IssueHistory', issue_record_book_path(@book) %>
-						</button>
+						<%= link_to 'IssueHistory', issue_record_book_path(@book), class:"btn btn-primary" %>
 						<h3> Copies Available for issue: <%= @availability %></h3>
 					</div>
 					<div>

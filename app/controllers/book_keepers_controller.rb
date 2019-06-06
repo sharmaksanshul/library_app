@@ -5,6 +5,10 @@ class BookKeepersController < ApplicationController
 		@book_keeper = BookKeeper.find(params[:id])
 	end
 
+	def find_student
+
+	end
+
 	private
 
 	def authenticate_admin? 

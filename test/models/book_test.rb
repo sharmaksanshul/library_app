@@ -47,7 +47,7 @@ class BookTest < ActiveSupport::TestCase
   	assert_not @book.valid?
   	@book.no_of_copies = 
   	assert_not @book.valid?
-  	@book.no_of_copies = "a"*51
+  	@book.no_of_copies = 22*51
   	assert_not @book.valid?
   end
 
