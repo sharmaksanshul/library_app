@@ -6,6 +6,7 @@ class BookTest < ActiveSupport::TestCase
   # end
   def setup
   	@book = books(:one)
+    @obook = books(:two)
   end
 
   test "should be valid " do 
@@ -64,5 +65,12 @@ class BookTest < ActiveSupport::TestCase
     @book.save 
     assert_equal mixed_case_author.capitalize, @book.reload.author
     assert_not_equal mixed_case_author, @book.reload.author
+    assert_not File.exists?(@book.picture.file.path)
+    assert @book.valid?
   end
+
+  # test "uploads an book image" do
+  #   book = Book.create(name:"dcsc",author:"sds",no_of_copies:"2")
+  #   # assert(File.exists?(book.reload.picture.file.path))
+  # end
 end

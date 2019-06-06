@@ -2,7 +2,7 @@
 	<div class="row">
 		<div class="col-sm-6" >
 			<div>
-		    <%= image_tag @book.picture_url(:thumb).to_s %>
+		    <%= image_tag @book.picture_url.to_s, class:"show-book" %>
 			</div>
 			<div>
 				<strong><%= @book.name %></strong>
@@ -10,7 +10,7 @@
 				<strong><%= @book.author %></strong>
 			  <% if @availability>0 %>
 			  	<div>
-				  	<em> Available For Issue </em>
+				  	<strong><em> Available For Issue </em></strong>
 				  </div>	
 				<% end %>
 			</div>

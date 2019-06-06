@@ -1,24 +1,22 @@
-<%= form_for(@book, :html => {:multipart => true}) do |f| %>
-  <%= render 'welcome/error_messages', object: f.object %>
-  <div class="container">
+  
+<div class="form-signin" align="center">
+  <%= form_for(@book, :html => {:multipart => true}) do |f| %>
+    <%= render 'welcome/error_messages', object: f.object %>
     <div class="field">
-  	  <%= f.label "Name" %><br/>
-  	  <%= f.text_field :name %>
+  	  <%= f.text_field :name, placeholder:"Book Name", class:"form-control" %>
     </div>
     <div class='field'>
-  	  <%= f.label "Author" %><br/>
-  	  <%= f.text_field :author %>
+  	  <%= f.text_field :author, placeholder:"Author Name", class:"form-control" %>
     </div>
     <div class="field">
-  	  <%= f.label "No_of_copies" %><br/>
-  	  <%= f.text_field :no_of_copies %>
+  	  <%= f.text_field :no_of_copies, placeholder:"No of copies", class:"form-control" %>
     </div>
     <div class="field">
-      <%= f.label "Add" %><br/>
+      <%= f.label "Book Image" %><br/>
     	<%= f.file_field :picture %>
     </div>
     <div class="actions">
-    	<%= f.submit "Submit" %>
+    	<%= f.submit "Submit", class:"btn btn-primary" %>
     </div>
-  </div>
-<% end %>
+  <% end %>
+</div>

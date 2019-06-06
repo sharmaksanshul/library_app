@@ -40,8 +40,9 @@ class StudentsControllerTest < ActionDispatch::IntegrationTest
   	get student_path(@student)
   	assert_redirected_to root_path
   	follow_redirect!
-  	assert_select "a[href=?]", root_path
-  	assert_select "a[href=?]", new_book_keeper_registration_path
+  	assert_select "a[href=?]", root_path, count: 0
+  	assert_select "a[href=?]", new_book_keeper_session_path
+    assert_select "a[href=?]", new_student_registration_path
   	assert_select "a[href=?]", book_path(@book), count: 0 
   	assert_select "a[href=?]", destroy_student_session_path, count: 0
   	assert_select "a[href=?]", student_path(@student), count: 0

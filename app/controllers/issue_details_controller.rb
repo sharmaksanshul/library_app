@@ -1,6 +1,6 @@
 class IssueDetailsController < ApplicationController
 	before_action :authenticate_book_keeper, only: [:create, :update, :edit]
-	
+	before_action :find_issue_detail, only: [:edit, :update]
 	def create 
 		@book= Book.find(params[:book_id])
 		@issue_detail = @book.issue_details.new(details_params)
@@ -12,16 +12,13 @@ class IssueDetailsController < ApplicationController
 	end
 
 	def edit
-		@issue_detail = IssueDetail.find(params[:id])
 		# @issue_detail.fine = (Date.tomorrow - @issue_detail.exp_recieved_date)*10
-		# debugger
 	end
 
-	def update
-		@issue_detail = IssueDetail.find(params[:id])
+	def update	
 		@fine = params.require(:issue_detail).permit(:fine)
 		if @fine[:fine].to_i > 0
-			redirect_to new_checkout_path(issue_detail_id: @issue_detail.id, fine: @fine[:fine])
+			redirect_to new_checkout_path(id: @issue_detail.id, fine: @fine[:fine])
 		else
 			if @issue_detail.update_attributes(details_params)
 	      flash[:success] = "Record updated"
@@ -33,6 +30,11 @@ class IssueDetailsController < ApplicationController
 	end
 
 	private
+
+	def find_issue_detail
+		@issue_detail = IssueDetail.find(params[:id])
+	end
+
 	def details_params
 		params.require(:issue_detail).permit(:student_id, :issue_date, :exp_recieved_date,
 		 :act_recieved_date, :fine)

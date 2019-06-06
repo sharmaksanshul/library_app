@@ -1,7 +1,8 @@
- <nav class="navbar navbar-inverse">
-    <div class="container-fluid">  
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid"> 
       <ul class="nav navbar-nav navbar-right">
-        <li class="active"><%= link_to "Home" ,root_path %></li>
+        <li class="active", style="color:white; font-size: 20px; margin-top: 10px; margin-right: 650px"><strong>Book Keeper</strong></li>
+        <li><%= link_to "Home" ,root_path %></li>
           <li><%= link_to "Add Book", new_book_path %></li>
           <li style = "margin-top: 10px;">
             <%= form_tag books_path, :method =>'get' do  %>
@@ -13,7 +14,7 @@
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">Account
           <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><%= link_to "update_profile", edit_book_keeper_registration_path %></li>
+            <li><%= link_to "Update Profile", edit_book_keeper_registration_path %></li>
   	        <li> <%= link_to "Profile",book_keeper_path(id:current_book_keeper.id) %> </li>
   	        <li>
               <%= link_to "Signout", destroy_book_keeper_session_path ,method: :delete %>

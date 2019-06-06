@@ -18,19 +18,15 @@ class BooksController < ApplicationController
 	end
 
 	def show
-		# debugger
-		# @book = Book.find(params[:id])
 		@availability = (@book.no_of_copies.to_i) - (@book.active_issues).count
 		@active_issue_details = @book.active_issues
 	end
 
 	def issue
-		# @book = Book.find(params[:id])
 		@issue_detail = @book.issue_details.new
 	end
 	
 	def issue_record
-		# @book = Book.find(params[:id])
 		@issue_record = @book.issue_records	
 	end
 
@@ -42,7 +38,6 @@ class BooksController < ApplicationController
 	end
 
 	def destroy
-		# @book = Book.find(params[:id])
 		if @book.destroy 
 			redirect_to books_path
 		else

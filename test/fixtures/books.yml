@@ -1,9 +1,10 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
+one: # generated id: 605975481
   name: Maths
   author: Rd barma
   no_of_copies: 3
+  picture: 'book.jpg'
 
 two:
   name: physics

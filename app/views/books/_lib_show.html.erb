@@ -2,7 +2,7 @@
 		<div class="row">
 			<div class="col-sm-8" >
 				<div>
-			    <%= image_tag @book.picture_url(:thumb).to_s %>
+			    <%= image_tag @book.picture_url.to_s, class:"show-book" %>
 				</div>
 				<div>
 					<strong><%= @book.name %></strong>
@@ -20,6 +20,7 @@
 						<button class="btn ">
 							<%= link_to 'IssueHistory', issue_record_book_path(@book) %>
 						</button>
+						<h3> Copies Available for issue: <%= @availability %></h3>
 					</div>
 					<div>
 						<% if @active_issue_details.count>0 %>

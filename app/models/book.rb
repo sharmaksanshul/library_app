@@ -1,6 +1,6 @@
 class Book < ApplicationRecord
 	# has_many :issues, class_name: "IssueDetail"
-	has_many :issue_details
+	has_many :issue_details, dependent: :destroy
 	attr_accessor :picture
 	validates :name, presence: true, length: {maximum: 50}
 	validates :author, presence: true, length: {maximum: 50}
