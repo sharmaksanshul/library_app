@@ -1,14 +1,20 @@
 class StudentsController < ApplicationController
 	before_action :authenticate_as_student?, only: [:show, :issue_history]
 	before_action :authenticate_as_book_keeper?, only: [:current_active_issue]
-	before_action :find_student, only: [:show, :issue_history, :current_active_issue]
+	before_action :find_student, only: [:show, :issue_history]
 	
 	def show 
 	
 	end
 
 	def current_active_issue
-		@details = @student.issue_details.includes(:book).where(act_recieved_date:nil)
+		if Student.all.exists?(params[:id])
+			find_student
+			@details = @student.issue_details.includes(:book).where(act_recieved_date:nil)
+		else
+			flash[:alert] = "Student Does not Exist With This Roll no. "
+			redirect_to find_student_path
+		end
 	end
 
 	def issue_history

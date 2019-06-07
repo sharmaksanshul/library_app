@@ -2,15 +2,17 @@
   <% @books.each_slice(4) do |slice| %>   
     <tr>
       <% slice.each do |book| %>
-        <td>        
+        <td> 
           <div class = "row">
             <div class = "col-md-12">
               <div class = "thumbnail">
-                <%= image_tag book.picture_url.to_s %>   
+                <%= image_tag book.picture_url().to_s %>   
                 <div class = caption >
                   <strong><%= link_to "#{book.name}", book %></strong>
-									<em>By</em>
-									<strong><%= book.author %></strong>
+                </div>
+                <div>
+                  <em>By</em>
+                  <strong><%= book.author %></strong>
                 </div>
               </div>
             </div>

@@ -1,8 +1,8 @@
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <ul class="nav navbar-nav navbar-right">
-      <li class="active", style="color:white; font-size: 20px; margin-top: 10px; margin-right: 740px"><strong class="glyphicon glyphicon-user"> Student</strong></li>
-      <li><%= link_to "Home" ,root_path %></li>
+      <li class="active", style="color:white; font-size: 20px; margin-top: 10px; margin-right: 740px"><strong style="color:white;"> <%= link_to "Student",current_student, class:"glyphicon glyphicon-user", style:"color:white;" %></strong></li>
+      <li><%= link_to "Books" ,root_path %></li>
       <li style = "margin-top: 10px;">
         <%= form_tag books_path, :method =>'get' do  %>
           <%= text_field_tag :search, params[:search] %>

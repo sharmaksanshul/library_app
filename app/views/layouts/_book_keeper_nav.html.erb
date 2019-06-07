@@ -2,16 +2,16 @@
     <div class="container-fluid"> 
       <ul class="nav navbar-nav navbar-right">
         <li class="active", style="color:white; font-size: 20px; margin-top: 10px; margin-right: 600px"><strong  class="glyphicon glyphicon-user"> BookKeeper</strong></li>
-        <li><%= link_to "Home" ,root_path %></li>
-          <li><%= link_to "Book", new_book_path, class:"glyphicon glyphicon-book" %></li>
-          <li style = "margin-top: 10px;">
-            <%= form_tag books_path, :method =>'get' do  %>
-              <%= text_field_tag :search, params[:search] %>
-              <%= submit_tag "Search" %>
-            <% end %>
-          </li>
+        <li><%= link_to "Books" ,root_path, class:"list"  %></li>
+        <li><%= link_to "Add Book", new_book_path, class:"list" %></li>
+        <li style = "margin-top: 10px;">
+          <%= form_tag books_path, :method =>'get' do  %>
+            <%= text_field_tag :search, params[:search] %>
+            <%= submit_tag "Search" %>
+          <% end %>
+        </li>
         <li class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Account
+          <a class="dropdown-toggle list" data-toggle="dropdown" href="#">Account
           <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><%= link_to "Update Profile", edit_book_keeper_registration_path %></li>
