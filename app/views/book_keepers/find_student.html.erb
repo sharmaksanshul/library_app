@@ -1,9 +1,9 @@
 <% flash.each do |message_type, message| %>
-       <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
+  <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
 <% end %>
 <div class="form-signin" align="center">
   <%= form_tag student_issue_path, :method =>'get' do  %>
-      <%= text_field_tag :id %>
+    <%= text_field_tag :id %>
     <%= submit_tag "submit" %>
   <% end %>
 </div>

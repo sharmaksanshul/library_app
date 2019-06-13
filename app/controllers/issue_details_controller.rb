@@ -1,8 +1,9 @@
 class IssueDetailsController < ApplicationController
 	before_action :authenticate_book_keeper, only: [:create, :update, :edit]
 	before_action :find_issue_detail, only: [:edit, :update]
+	
 	def create 
-		@book= Book.find(params[:book_id])
+		@book = Book.find(params[:book_id])
 		@issue_detail = @book.issue_details.new(details_params)
 		if @issue_detail.save
 			redirect_to books_path
@@ -16,9 +17,10 @@ class IssueDetailsController < ApplicationController
 	end
 
 	def update	
-		@fine = params.require(:issue_detail).permit(:fine)
-		if @fine[:fine].to_i > 0
-			redirect_to new_checkout_path(id: @issue_detail.id, fine: @fine[:fine])
+		details = details_params
+		fine = details[:fine].to_i
+		if fine > 0
+			redirect_to new_checkout_path(id: @issue_detail.id, fine: fine)
 		else
 			if @issue_detail.update_attributes(details_params)
 	      flash[:success] = "Record updated"

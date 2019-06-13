@@ -12,7 +12,7 @@
 			<tbody>
 	      <tr>
 	        <td><%= detail.student_id %></td>
-	        <td><%= detail.issue_date %></td>
+	        <td><%= detail.issue_date.strftime("%d %b,%Y") %></td>
 	        <td><%= detail.student.name %></td> 
 	      </tr>
 	    </tbody>

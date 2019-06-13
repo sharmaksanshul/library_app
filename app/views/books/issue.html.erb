@@ -2,24 +2,23 @@
   <%= form_for(@issue_detail) do |f| %>
     <%= render 'welcome/error_messages', object: f.object %>
     <div><%= hidden_field_tag :book_id, @book.id %></div>
-      <div class="field">
-        <%= f.label "Roll no." %><br />
-        <%= f.text_field :student_id, class:"form-control" %>
-      </div>
+    <div class="field">
+      <h4>Roll No.</h4><%= f.text_field :student_id, class:"form-control" %>
+    </div>
 
-      <div class="field">
-        <%= f.label "Issue Date" %><br />
-        <%= f.date_field :issue_date, placeholder:"Issue Date", class:"form-control" %>
-      </div>
+    <div class="field">
+      <h4> Issue Date</h4><%= f.date_field :issue_date, placeholder:"Issue Date", class:"form-control" %>
+    </div>
 
-      <div class="field">
-        <%= f.label "Expected Return" %><br />
-        <%= f.date_field :exp_recieved_date, class:"form-control" %>
-      </div>
+    <div class="field">
+      <h4> Expected Return</h4><%= f.date_field :exp_recieved_date, class:"form-control" %>
+    </div>
 
-      <div class="actions">
-        <%= f.submit"Submit", class:"btn btn-primary" %>
-      </div>
+    <div class="actions">
+      <%= f.submit"Submit", class:"btn btn-primary" %>
+    </div>
   <% end %>
 </div>
+
+
 

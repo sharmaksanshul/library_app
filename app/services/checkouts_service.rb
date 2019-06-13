@@ -37,7 +37,7 @@ class CheckoutsService
     end
   end
 
-  def self.transaction_sale(amount,nonce)
+  def self.transaction_sale(amount, nonce)
       self.gateway.transaction.sale(
       amount: amount,
       payment_method_nonce: nonce,
@@ -47,6 +47,12 @@ class CheckoutsService
     )
   end
 
-
-    
+  def self.transaction_status(issue_detail, amount, result)
+    if result.success? || result.transaction
+      issue_detail.update_attributes(fine: amount, transaction_id: result.transaction.id, act_recieved_date: Date.today )
+      "success"
+    else
+      error_messages = result.errors.map { |error| "Error: #{error.code}: #{error.message}" }     
+    end
+  end
 end

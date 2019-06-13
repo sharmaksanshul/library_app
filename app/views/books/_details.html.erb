@@ -13,8 +13,8 @@
 			<tbody>
 	      <tr>
 	        <td><%= detail.student_id %></td>
-	        <td><%= detail.issue_date %></td>
-	        <td><%= detail.exp_recieved_date %></td>
+	        <td><%= detail.issue_date.strftime("%d %b,%Y") %></td>
+	        <td><%= detail.exp_recieved_date.strftime("%d %b,%Y") %></td>
 	        <td><%= link_to 'Return',  edit_issue_detail_path(detail) %></td>
 	      </tr>
 	    </tbody>

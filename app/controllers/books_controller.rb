@@ -11,7 +11,7 @@ class BooksController < ApplicationController
 	def create
 		@book = Book.new(book_params)
 		if @book.save
-			flash[:success] = "Book created successfully"
+			flash[:success] = "Book saved successfully"
 			redirect_to books_path
 		else
 			render 'new'
@@ -19,7 +19,7 @@ class BooksController < ApplicationController
 	end
 
 	def show
-		@availability = (@book.no_of_copies.to_i) - (@book.active_issues).count
+		@availability = (@book.no_of_copies) - (@book.active_issues).count
 		@active_issue_details = @book.active_issues
 	end
 
@@ -32,14 +32,15 @@ class BooksController < ApplicationController
 	end
 
 	def index
-		if @books = Book.where(["name LIKE ?","%#{params[:search]}%"])
-    else
-      @books = Book.all
+		@books = Book.paginate(page: params[:page], per_page: 8)
+		if params[:search]
+   		@books = Book.where(["name LIKE ?","%#{params[:search]}%"]).paginate(page: params[:page], per_page: 8)
     end
 	end
 
 	def destroy
 		if @book.destroy 
+			flash[:danger] = "Book deleted successfully"
 			redirect_to books_path
 		else
 			redirect_to @book
@@ -49,7 +50,7 @@ class BooksController < ApplicationController
 	private
 
 	def book_params
-		params.require(:book).permit(:name, :author, :no_of_copies,:picture)
+		params.require(:book).permit(:name, :author, :no_of_copies, :picture)
 	end
 
 	def authenticate_book_keeper

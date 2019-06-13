@@ -1,27 +1,29 @@
 <div class="container" >
-		<div class="row">
-			<div class="col-sm-8" >
-				<div >
-			    <%= image_tag @book.picture_url(:thumb).to_s, class:"show-book" %>
-				</div>
-				<div>
+	<div class="row">
+		<div class="col-sm-8" >
+			<div >
+		    <%= image_tag @book.picture_url(:thumb).to_s, class:"show-book" %>
+			</div>
+			<div>
+				<h4>
 					<strong><%= @book.name %></strong>
 					<em>By</em>
 					<strong><%= @book.author %></strong>
-					<div>
-						<%= link_to 'Delete', @book, :method => :delete,  data: { confirm: "You sure?" }, class:"btn btn-danger"%>
-					  <% if @availability>0 %>
-							<%= link_to 'Issue', issue_book_path(@book), class:"btn btn-success" %>
-						<% end %>
-						<%= link_to 'IssueHistory', issue_record_book_path(@book), class:"btn btn-primary" %>
-						<h3> Copies Available for issue: <%= @availability %></h3>
-					</div>
-					<div>
-						<% if @active_issue_details.count>0 %>
-								<%= render 'details' %>
-						<% end %>
-					</div>
+				</h4>
+				<div>
+					<%= link_to 'Delete', @book, :method => :delete,  data: { confirm: "You sure?" }, class:"btn btn-danger"%>
+				  <% if @availability>0 %>
+						<%= link_to 'Issue', issue_book_path(@book), class:"btn btn-success" %>
+					<% end %>
+					<%= link_to 'IssueHistory', issue_record_book_path(@book), class:"btn btn-primary" %>
+					<h3>Available Books: <%= @availability %></h3>
+				</div>
+				<div>
+					<% if @active_issue_details.count>0 %>
+						<%= render 'details' %>
+					<% end %>
 				</div>
 			</div>
 		</div>
 	</div>
+</div>

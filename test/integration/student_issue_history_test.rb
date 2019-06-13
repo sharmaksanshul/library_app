@@ -27,7 +27,7 @@ class StudentIssueHistoryTest < ActionDispatch::IntegrationTest
   	get issue_history_student_path(@student)
   	assert_response :success
   	assert_template 'students/issue_history'
-  	assert_select "th", "Book id"
+  	assert_select "th", "Book Id"
 		assert_select "th", "IssueDate"
 		assert_select "th", "Book Name"
 		assert_select "th", "Status"
